@@ -1,5 +1,7 @@
 # Change Log
 
+-  default document template for unsupported language
+
 ## 3.0.0
 
 ## Added

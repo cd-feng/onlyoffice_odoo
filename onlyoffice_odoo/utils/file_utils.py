@@ -100,7 +100,7 @@ def get_default_file_template(lang, ext):
         lang = lang.split("-")[0]
         locale = locale_path.get(lang)
         if locale is None:
-            locale = locale_path.get("en")
+            locale = locale_path.get("default")
 
     file = open(
         os.path.join(
