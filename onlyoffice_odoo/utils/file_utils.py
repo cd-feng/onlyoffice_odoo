@@ -22,73 +22,49 @@ def get_file_ext(name):
 
 
 def get_file_type(context):
-    for format in format_utils.get_supported_formats():
-        if format.name == get_file_ext(context):
-            return format.type
+    for supported_format in format_utils.get_supported_formats():
+        if supported_format.name == get_file_ext(context):
+            return supported_format.type
 
     return None
 
 
 def can_view(context):
-    for format in format_utils.get_supported_formats():
-        if format.name == get_file_ext(context):
+    for supported_format in format_utils.get_supported_formats():
+        if supported_format.name == get_file_ext(context):
             return True
 
     return False
 
 
 def can_edit(context):
-    for format in format_utils.get_supported_formats():
-        if format.name == get_file_ext(context):
-            return format.edit
+    for supported_format in format_utils.get_supported_formats():
+        if supported_format.name == get_file_ext(context):
+            return supported_format.edit
 
     return False
 
 
 def can_fill_form(context):
-    for format in format_utils.get_supported_formats():
-        if format.name == get_file_ext(context):
-            return format.fillForm
+    for supported_format in format_utils.get_supported_formats():
+        if supported_format.name == get_file_ext(context):
+            return supported_format.fillForm
 
     return False
 
 
-def get_default_ext_by_type(str):
-    if str == "word":
-        return "docx"
-    if str == "cell":
-        return "xlsx"
-    if str == "slide":
-        return "pptx"
-    if str == "form":
-        return "pdf"
-
-    return None
-
-
-def get_default_name_by_type(str):
-    if str == "word":
-        return "Document"
-    if str == "cell":
-        return "Spreadsheet"
-    if str == "slide":
-        return "Presentation"
-    if str == "form":
-        return "PDF form"
-
-    return None
-
-def get_mime_by_ext(str):
-    if str == "docx":
+def get_mime_by_ext(ext):
+    if ext == "docx":
         return "application/vnd.openxmlformats-officedocument.wordprocessingml.document"
-    if str == "xlsx":
+    if ext == "xlsx":
         return "application/vnd.openxmlformats-officedocument.spreadsheetml.sheet"
-    if str == "pptx":
+    if ext == "pptx":
         return "application/vnd.openxmlformats-officedocument.presentationml.presentation"
-    if str == "pdf":
+    if ext == "pdf":
         return "application/pdf"
 
     return None
+
 
 def get_default_file_template(lang, ext):
     locale_path = {
@@ -126,7 +102,18 @@ def get_default_file_template(lang, ext):
         if locale is None:
             locale = locale_path.get("en")
 
-    file = open(os.path.join(os.path.abspath(os.path.dirname(__file__)), "..", "static", "assets", "document_templates", locale, "new." + ext), "rb")
+    file = open(
+        os.path.join(
+            os.path.abspath(os.path.dirname(__file__)),
+            "..",
+            "static",
+            "assets",
+            "document_templates",
+            locale,
+            "new." + ext,
+        ),
+        "rb",
+    )
 
     try:
         file_data = file.read()
