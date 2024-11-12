@@ -1,6 +1,7 @@
 # Change Log
 
--  default document template for unsupported language
+- default document template for unsupported language
+- Basque, Finnish, Galician, Hebrew, Norwegian, Turkish, Chinese (Traditional) empty file templates
 
 ## 3.0.0
 
