@@ -1,6 +1,7 @@
 # Setting up a development environment
 
 ```bash
+npm install
 python3 -m venv .venv
 For Windows: .venv\Scripts\activate.bat
 For Unix: source ./.venv/bin/activate

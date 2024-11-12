@@ -14,12 +14,12 @@ exclude: |
   ^docs/_templates/.*\.html$|
   # Don't bother non-technical authors with formatting issues in docs
   readme/.*\.(rst|md)$|
-  # Ignore build and dist directories in addons
-  /build/|/dist/|
+  # Ignore build, dist and licenses directories in addons
+  /build/|/dist/|/licenses/|
   # Ignore test files in addons
   /tests/samples/.*|
   # You don't usually want a bot to modify your legal texts
-  (LICENSE.*|COPYING.*)|
+  (LICENSE.*|COPYING.*|.license)|
   # Ignore submodules directory
   ^.*/assets/
 default_language_version:
