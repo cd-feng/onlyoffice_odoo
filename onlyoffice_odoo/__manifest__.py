@@ -10,7 +10,7 @@
     'website': "https://www.onlyoffice.com",
 
     'category': 'Productivity',
-    'version': '4.0.0',
+    'version': '5.0.0',
 
     'depends': ['base', 'mail'],
 

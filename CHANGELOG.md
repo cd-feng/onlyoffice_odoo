@@ -1,5 +1,9 @@
 # Change Log
 
+## 5.0.0
+## Added
+- compatible with Odoo 18
+
 ## 4.0.0
 ## Added
 - advanced server settings for specifying internal addresses
