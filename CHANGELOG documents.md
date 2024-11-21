@@ -1,5 +1,9 @@
 # Change Log
 
+## 5.0.1
+## Added
+- compatible with Odoo 18
+
 ## 4.0.1
 ## Changed
 - replace docxf with pdf as a form template
