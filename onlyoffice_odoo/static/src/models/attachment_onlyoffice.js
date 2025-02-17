@@ -84,10 +84,28 @@ registerPatch({
           return
         }
       }
-      this.openOnlyofficeEditor()
+      const sameTab = await this.messaging.rpc({
+        args: ["onlyoffice_connector.same_tab"],
+        method: "get_param",
+        model: "ir.config_parameter",
+      })
+      if (sameTab) {
+        this.openSameTabOnlyofficeEditor()
+      } else {
+        this.openNewTabOnlyofficeEditor()
+      }
     },
-    openOnlyofficeEditor() {
+    openNewTabOnlyofficeEditor() {
       window.open(this.onlyofficeEditorUrl, "_blank")
+    },
+    openSameTabOnlyofficeEditor() {
+      const action = {
+        params: { attachment_id: this.id },
+        tag: "onlyoffice_editor",
+        target: "current",
+        type: "ir.actions.client",
+      }
+      return this.env.services.action.doAction(action)
     },
   },
   // eslint-disable-next-line sort-keys

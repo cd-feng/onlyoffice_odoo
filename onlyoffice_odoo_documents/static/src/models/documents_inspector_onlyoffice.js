@@ -59,6 +59,7 @@ patch(DocumentsInspector.prototype, "ONLYOFFICE_patch", {
   setup() {
     this._super(...arguments)
     this.notification = useService("notification")
+    this.actionService = useService("action")
     this.onlyofficeEditorUrl = this.onlyofficeEditorUrl.bind(this)
   },
   // eslint-disable-next-line sort-keys
@@ -89,6 +90,18 @@ patch(DocumentsInspector.prototype, "ONLYOFFICE_patch", {
         )
         return
       }
+    }
+    const sameTab = await this.env.services.orm.call("ir.config_parameter", "get_param", [
+      "onlyoffice_connector.same_tab",
+    ])
+    if (sameTab) {
+      const action = {
+        params: { document_id: id },
+        tag: "onlyoffice_editor",
+        target: "current",
+        type: "ir.actions.client",
+      }
+      return this.actionService.doAction(action)
     }
     window.open(`/onlyoffice/editor/document/${id}`, "_blank")
   },

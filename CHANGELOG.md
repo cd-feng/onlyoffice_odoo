@@ -1,5 +1,6 @@
 # Change Log
 
+- setting to open the editor in the same tab
 - shardkey in querystring
 - jwt lifetime
 - demo server address changed
