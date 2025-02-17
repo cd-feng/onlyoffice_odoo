@@ -127,7 +127,7 @@ class Onlyoffice_Connector(http.Controller):
 
     def prepare_editor_values(self, attachment, access_token, can_write):
         data = attachment.read(["id", "checksum", "public", "name", "access_token"])[0]
-
+        key = str(data["id"]) + str(data["checksum"])
         docserver_url = config_utils.get_doc_server_public_url(request.env)
         odoo_url = config_utils.get_base_or_odoo_url(request.env)
 
@@ -143,6 +143,8 @@ class Onlyoffice_Connector(http.Controller):
             + "?oo_security_token="
             + security_token
             + ("&access_token=" + access_token if access_token else "")
+            + "&shardkey="
+            + key
         )
 
         document_type = file_utils.get_file_type(filename)
@@ -158,7 +160,7 @@ class Onlyoffice_Connector(http.Controller):
                 "title": filename,
                 "url": odoo_url + "onlyoffice/file/content/" + path_part,
                 "fileType": file_utils.get_file_ext(filename),
-                "key": str(data["id"]) + str(data["checksum"]),
+                "key": key,
                 "permissions": {"edit": can_write},
             },
             "editorConfig": {

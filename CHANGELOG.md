@@ -1,5 +1,6 @@
 # Change Log
 
+- shardkey in querystring
 - jwt lifetime
 - demo server address changed
 - default document template for unsupported language
