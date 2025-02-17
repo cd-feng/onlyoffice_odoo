@@ -81,7 +81,7 @@ def set_demo(env, param):
     if not demo_date:
         set_demo_date(env)
     if param:
-        set_doc_server_public_url(env, "https://onlinedocs.onlyoffice.com/")
+        set_doc_server_public_url(env, "https://onlinedocs.docs.onlyoffice.com/")
         set_doc_server_odoo_url(env, "")
         set_doc_server_inner_url(env, "")
         set_jwt_header(env, "AuthorizationJWT")
