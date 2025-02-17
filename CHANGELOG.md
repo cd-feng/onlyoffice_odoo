@@ -1,5 +1,6 @@
 # Change Log
 
+- jwt lifetime
 - demo server address changed
 - default document template for unsupported language
 - Basque, Finnish, Galician, Hebrew, Norwegian, Turkish, Chinese (Traditional) empty file templates
