@@ -59,37 +59,38 @@ registerPatch({
   recordMethods: {
     async onClickOnlyofficeEdit(ev) {
       ev.stopPropagation()
-      var demo = await this.messaging.rpc({
-        args: ["onlyoffice_connector.doc_server_demo"],
-        method: "get_param",
-        model: "ir.config_parameter",
-      })
-      var demoDate = await this.messaging.rpc({
-        args: ["onlyoffice_connector.doc_server_demo_date"],
-        method: "get_param",
-        model: "ir.config_parameter",
-      })
-      demoDate = new Date(Date.parse(demoDate))
-      if (demo && demoDate && demoDate instanceof Date) {
-        const today = new Date()
-        const difference = Math.floor((today - new Date(Date.parse(demoDate))) / (1000 * 60 * 60 * 24))
-        if (difference > 30) {
-          this.messaging.userNotificationManager.sendNotification({
-            message: this.env._t(
-              "The 30-day test period is over, you can no longer connect to demo ONLYOFFICE Docs server",
-            ),
-            title: this.env._t("ONLYOFFICE Docs server"),
-            type: "warning",
-          })
-          return
+      const demo = JSON.parse(
+        await this.messaging.rpc({
+          method: "get_demo",
+          model: "onlyoffice.odoo",
+        }),
+      )
+      if (demo && demo.mode && demo.date) {
+        const isValidDate = (d) => d instanceof Date && !isNaN(d)
+        demo.date = new Date(Date.parse(demo.date))
+        if (isValidDate(demo.date)) {
+          const today = new Date()
+          const difference = Math.floor((today - demo.date) / (1000 * 60 * 60 * 24))
+          if (difference > 30) {
+            this.messaging.userNotificationManager.sendNotification({
+              message: this.env._t(
+                "The 30-day test period is over, you can no longer connect to demo ONLYOFFICE Docs server",
+              ),
+              title: this.env._t("ONLYOFFICE Docs server"),
+              type: "warning",
+            })
+            return
+          }
         }
       }
-      const sameTab = await this.messaging.rpc({
-        args: ["onlyoffice_connector.same_tab"],
-        method: "get_param",
-        model: "ir.config_parameter",
-      })
-      if (sameTab) {
+
+      const { same_tab } = JSON.parse(
+        await this.messaging.rpc({
+          method: "get_same_tab",
+          model: "onlyoffice.odoo",
+        }),
+      )
+      if (same_tab) {
         this.openSameTabOnlyofficeEditor()
       } else {
         this.openNewTabOnlyofficeEditor()
