@@ -64,10 +64,10 @@ patch(DocumentsInspector.prototype, "ONLYOFFICE_patch", {
   },
   // eslint-disable-next-line sort-keys
   onlyofficeCanEdit(extension) {
-    return oo_editable_formats.includes(extension)
+    return oo_editable_formats.includes(extension.toLowerCase())
   },
   onlyofficeCanView(extension) {
-    return oo_viewable_formats.includes(extension)
+    return oo_viewable_formats.includes(extension.toLowerCase())
   },
   async onlyofficeEditorUrl(id) {
     var demo = await this.env.services.orm.call("ir.config_parameter", "get_param", [

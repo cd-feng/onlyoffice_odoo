@@ -112,12 +112,12 @@ registerPatch({
   fields: {
     onlyofficeCanEdit: attr({
       compute() {
-        return oo_editable_formats.includes(this.extension)
+        return oo_editable_formats.includes(this.extension.toLowerCase())
       },
     }),
     onlyofficeCanView: attr({
       compute() {
-        return oo_viewable_formats.includes(this.extension)
+        return oo_viewable_formats.includes(this.extension.toLowerCase())
       },
     }),
     onlyofficeEditorUrl: attr({
