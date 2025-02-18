@@ -1,5 +1,6 @@
 # Change Log
 
+- goback from editor to file location
 - setting to open the editor in the same tab
 - shardkey in querystring
 - jwt lifetime
