@@ -29,9 +29,9 @@
               <div class="col-12 col-lg-6 o_setting_box">
                 <div class="o_setting_left_pane" />
                 <div class="o_setting_right_pane">
-                  <span
-                    class="o_form_label"
-                  >Server address for internal requests from the Document Editing Service</span>
+                  <span class="o_form_label">
+                    Server address for internal requests from the Document Editing Service
+                  </span>
                   <div class="text-muted content-group mt16">
                     <field name="doc_server_odoo_url" />
                   </div>
@@ -42,9 +42,9 @@
               <div class="col-12 col-lg-6 o_setting_box">
                 <div class="o_setting_left_pane" />
                 <div class="o_setting_right_pane">
-                  <span
-                    class="o_form_label"
-                  >Document Editing Service address for internal requests from the server</span>
+                  <span class="o_form_label">
+                    Document Editing Service address for internal requests from the server
+                  </span>
                   <div class="text-muted content-group mt16">
                     <field name="doc_server_inner_url" />
                   </div>
@@ -58,7 +58,9 @@
               <div class="col-12 col-lg-6 o_setting_box">
                 <div class="o_setting_left_pane" />
                 <div class="o_setting_right_pane">
-                  <span class="o_form_label">Document Server JWT Secret</span>
+                  <span class="o_form_label">
+                    Document Server JWT Secret
+                  </span>
                   <div class="text-muted content-group mt16">
                     <field name="doc_server_jwt_secret" password="True" />
                   </div>
@@ -69,7 +71,9 @@
               <div class="col-12 col-lg-6 o_setting_box">
                 <div class="o_setting_left_pane" />
                 <div class="o_setting_right_pane">
-                  <span class="o_form_label">Document Server JWT Header</span>
+                  <span class="o_form_label">
+                   Document Server JWT Header
+                  </span>
                   <div class="text-muted content-group mt16">
                     <field name="doc_server_jwt_header" />
                   </div>
@@ -85,10 +89,12 @@
                   <field name="doc_server_demo" />
                 </div>
                 <div class="o_setting_right_pane">
-                  <label class="o_form_label" for="doc_server_demo">Connect to demo ONLYOFFICE Docs server</label>
+                  <label class="o_form_label" for="doc_server_demo">
+                    Connect to demo ONLYOFFICE Docs server
+                  </label>
                   <div class="text-muted">
-                                        This is a public test server, please do not use it for private sensitive data. The server will be available during a 30-day period.
-                                    </div>
+                    This is a public test server, please do not use it for private sensitive data. The server will be available during a 30-day period.
+                  </div>
                 </div>
               </div>
             </div>
@@ -98,7 +104,9 @@
                   <field name="same_tab" />
                 </div>
                 <div class="o_setting_right_pane">
-                  <label class="o_form_label" for="same_tab">Open file in the same tab</label>
+                  <label class="o_form_label" for="same_tab">
+                    Open file in the same tab
+                  </label>
                 </div>
               </div>
             </div>
@@ -112,8 +120,8 @@
                       href="https://www.onlyoffice.com/docs-registration.aspx"
                       target="_blank"
                     >
-                                            GET NOW
-                                        </a>
+                      GET NOW
+                    </a>
                   </div>
                 </div>
               </div>

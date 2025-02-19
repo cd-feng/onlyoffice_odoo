@@ -25,7 +25,6 @@ _mobile_regex = r"android|avantgo|playbook|blackberry|blazer|compal|elaine|fenne
 class Onlyoffice_Connector(http.Controller):
     @http.route("/onlyoffice/editor/get_config", auth="user", methods=["POST"], type="json", csrf=False)
     def get_config(self, document_id=None, attachment_id=None, access_token=None):
-        
         if document_id:
             document = request.env["documents.document"].browse(int(document_id))
             try:

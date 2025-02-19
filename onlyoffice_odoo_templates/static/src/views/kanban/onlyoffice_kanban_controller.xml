@@ -15,8 +15,8 @@
         data-bounce-button=""
         groups="onlyoffice_odoo_templates.group_manager"
       >
-                Create or Upload
-            </button>
+        Create or Upload
+      </button>
     </xpath>
   </t>
 </templates>
